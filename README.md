@@ -3,6 +3,8 @@
 ## Overview
 slack のリマインダーコマンドを生成するApp
 
+![slack-modal-reminder](https://github.com/Nalagami/slack-modal-reminder-for-python/assets/52233630/fec193d0-e3f3-4b97-bc43-b7b1a3c5f897)
+
 ## Requirement
 ```
 aws cli 2.11.25
@@ -91,15 +93,14 @@ serverless deploy
 削除やリマインダーの管理はSlackの「後で」メニューから行う
 
 ## Reference
+[Slack bolt for python 入門ガイド](https://slack.dev/bolt-python/ja-jp/tutorial/getting-started)
 
-https://slack.dev/bolt-python/ja-jp/tutorial/getting-started
+[Slack アプリでのモーダルの使い方完全ガイド](https://qiita.com/seratch/items/0b1790697281d4cf6ab3)
 
-https://qiita.com/seratch/items/0b1790697281d4cf6ab3
+[Slack Python SDK でチャンネルにメッセージを投稿しよう](https://qiita.com/seratch/items/93714b5cf3974c2f5327)
 
-https://qiita.com/seratch/items/93714b5cf3974c2f5327
+[Bolt for Python + AWS Lambda & S3 で運用するほぼゼロコスト Slack アプリ](https://qiita.com/seratch/items/12b39d636daf8b1e5fbf)
 
-https://qiita.com/seratch/items/12b39d636daf8b1e5fbf
+[Slack api Reference: Layout blocks](https://api.slack.com/reference/block-kit/blocks)
 
-https://api.slack.com/reference/block-kit/blocks
-
-https://api.slack.com/reference/block-kit/block-elements
+[Slack api Reference: Block elements](https://api.slack.com/reference/block-kit/block-elements)
