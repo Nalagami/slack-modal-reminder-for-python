@@ -1,0 +1,42 @@
+{
+    "display_information": {
+        "name": "リマインドコマンドメーカー",
+        "description": "Slackのリマインドコマンドを生成する",
+        "background_color": "#1d7c00"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "slack-bolt-python-test",
+            "always_online": false
+        },
+        "shortcuts": [
+            {
+                "name": "リマインダーコマンド生成",
+                "type": "global",
+                "callback_id": "send-reminder-modal",
+                "description": "Slackにリマインダーを生成する"
+            }
+        ]
+    },
+    "oauth_config": {
+        "scopes": {
+            "bot": [
+                "channels:history",
+                "channels:read",
+                "chat:write",
+                "commands",
+                "im:history",
+                "im:read"
+            ]
+        }
+    },
+    "settings": {
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://q9lh5rv2v8.execute-api.ap-northeast-1.amazonaws.com/slack/events"
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}

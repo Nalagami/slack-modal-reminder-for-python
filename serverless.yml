@@ -1,0 +1,45 @@
+frameworkVersion: '3'
+service: slack-modal-reminder
+provider:
+  name: aws
+  runtime: python3.9
+  region: ap-northeast-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:InvokeFunction
+            - lambda:InvokeAsync
+          Resource: "*"
+  environment:
+    SERVERLESS_STAGE: ${opt:stage, 'prod'}
+    SLACK_SIGNING_SECRET: ${env:SLACK_SIGNING_SECRET}
+    SLACK_BOT_TOKEN: ${env:SLACK_BOT_TOKEN}
+
+functions:
+  app:
+    handler: app.handler
+    events:
+      - httpApi:
+          path: /slack/events
+          method: post
+
+package:
+  patterns:
+    - "!.venv/**"
+    - "!node_modules/**"
+    - "!.idea/**"
+    - "!.**"
+    - "!lib/__pycache__/**"
+    - "!package**"
+
+# プラグインを使って依存ライブラリを zip 圧縮します
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    zip: true
+    slim: true
+    useDownloadCache: false
+    useStaticCache: false
