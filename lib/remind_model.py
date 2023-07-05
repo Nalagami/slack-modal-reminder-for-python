@@ -103,3 +103,11 @@ class Remind:
 
     def get_my_instance_var_names(self):
         return vars(self)
+
+    def is_addressed_to_myself(self):
+        """
+        宛先が自分自身かどうか判別する関数
+
+        channel_id があればFalse(自分自身ではない) それ以外はTrue
+        """
+        return False if self.__channel_id != "" else True
