@@ -178,6 +178,11 @@ def handle_view_events(
 
     remind = Remind(inputs=inputs, client=client)
 
+    # 宛先が自分自身なら実行ユーザにリマインダーを登録
+    if remind.is_addressed_to_myself():
+        ack()
+        exit()
+
     # DMでリマインドコマンドを送信
     client.chat_postMessage(
         channel=context.user_id,
